@@ -17,10 +17,7 @@ http.interceptors.response.use(
     const {
       response,
       request,
-    }: {
-      response?: AxiosResponse;
-      request?: XMLHttpRequest;
-    } = error;
+    }: { response?: AxiosResponse; request?: XMLHttpRequest } = error;
     if (response) {
       if (response.status >= 400 && response.status < 500) {
         showAlert(response.data?.data?.message, "error");
@@ -33,3 +30,5 @@ http.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+export default http;

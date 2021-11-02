@@ -40,7 +40,7 @@ const signup = (schema: any, req: Request): AuthResponse | Response => {
 
   const user = schema.users.create(data);
   const token = generateToken();
-  
+
   return {
     user: user.attrs as User,
     token,
