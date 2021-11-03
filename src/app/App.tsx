@@ -1,10 +1,10 @@
-import React, { FC, lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../rootReducer";
+import React, { FC, lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../rootReducer';
 
-const Auth = lazy(() => import("../features/auth/Auth"));
-const Home = lazy(() => import("../features/home/Home"));
+const Auth = lazy(() => import('../features/auth/Auth'));
+const Home = lazy(() => import('../features/home/Home'));
 
 const App: FC = () => {
   const isLoggedIn = useSelector(
@@ -12,16 +12,15 @@ const App: FC = () => {
   );
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Suspense fallback={<p>Loading.......</p>}>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Suspense fallback={<p>Loading...</p>}>
             {isLoggedIn ? <Home /> : <Auth />}
           </Suspense>
-        }
-      />
-    </Routes>
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 

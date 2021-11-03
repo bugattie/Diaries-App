@@ -1,13 +1,13 @@
-import React, { FC, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../rootReducer";
-import http from "../../services/api";
-import { Entry } from "../../interfaces/entry.interface";
-import { setEntries } from "../entry/entriesSlice";
-import { setCurrentlyEditing, setCanEdit } from "../entry/editorSlice";
-import dayjs from "dayjs";
-import { useAppDispatch } from "../../store";
+import React, { FC, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../rootReducer';
+import http from '../../services/api';
+import { Entry } from '../../interfaces/entry.interface';
+import { setEntries } from '../entry/entriesSlice';
+import { setCurrentlyEditing, setCanEdit } from '../entry/editorSlice';
+import dayjs from 'dayjs';
+import { useAppDispatch } from '../../store';
 
 const DiaryEntriesList: FC = () => {
   const { entries } = useSelector((state: RootState) => state);
@@ -33,7 +33,7 @@ const DiaryEntriesList: FC = () => {
     <div className="entries">
       <header>
         <Link to="/">
-          <h3>← Go Back</h3>
+          <h3>&larr; Go Back</h3>
         </Link>
       </header>
       <ul>
